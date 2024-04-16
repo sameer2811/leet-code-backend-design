@@ -12,5 +12,4 @@ v1Router.get("/", function (req, res) {
     })
 });
 
-
 module.exports = v1Router;

@@ -1,30 +1,40 @@
-const {StatusCodes} = require('http-status-codes');
+const {
+    StatusCodes
+} = require('http-status-codes');
+const NOT_IMPLEMENTED = require('./../error/notImplemented.error.js');
 
-function getProblemById(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        "msg": "Not Implemented"
-    });
-
+function getProblemById(req, res, next) {
+    try {
+        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
+    } catch (error) {
+        next(error);
+    }
 }
 
-function getAllProblems(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        "msg": "Not Implemented"
-    });
+function getAllProblems(req, res, next) {
+    try {
+        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
+    } catch (error) {
+        next(error);
+    }
 }
 
-function postNewProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        "msg": "Not Implemented"
-    });
+function postNewProblem(req, res, next) {
+    try {
+        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
+    } catch (error) {
+        next(error);
+    }
 }
 
-function postUpdateProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        "msg": "Not Implemented"
-    });
-}
+function postUpdateProblem(req, res, next) {
+    try {
+        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
 
+    } catch (error) {
+        next(error);
+    }
+}
 
 module.exports = {
     getProblemById,

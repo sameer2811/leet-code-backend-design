@@ -8,14 +8,12 @@ problemRouter.get("/ping", function (req, res) {
     });
 });
 
-
 problemRouter.get("/:id", problemController.getProblemById);
 
 problemRouter.get("/", problemController.getAllProblems);
 
-problemRouter.put("/id", problemController.postUpdateProblem)
+problemRouter.put("/:id", problemController.postUpdateProblem)
 
 problemRouter.post("/" , problemController.postNewProblem)
-
 
 module.exports = problemRouter;

@@ -1,7 +1,8 @@
 const express = require('express');
+const apiRouter = require('./routes/index.js');
+const {errorHandler}  = require('./util/errorHandler.js');
 const PORT = require('./config/server.config.js');
 const app = express();
-const apiRouter = require('./routes/index.js');
 
 
 
@@ -14,17 +15,11 @@ app.get("/", function (req, res) {
     })
 });
 
-
 // In Case the URl starts with /api router
-
 app.use("/api", apiRouter);
-
-
-
+app.use(errorHandler);
 
 // server at PORT setup
 app.listen(PORT, function () {
     console.log("Server started Listening at PORT ", PORT);
 });
-
-//
