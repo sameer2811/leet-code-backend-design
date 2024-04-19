@@ -1,33 +1,65 @@
 const {
     StatusCodes
 } = require('http-status-codes');
+const {
+    ProblemService
+} = require('./../service/index.js');
+const {
+    ProblemRepositry
+} = require('./../repository/index.js');
 const NOT_IMPLEMENTED = require('./../error/notImplemented.error.js');
 
-function getProblemById(req, res, next) {
+
+const problemService = new ProblemService(new ProblemRepositry());
+
+async function getProblemById(req, res, next) {
     try {
-        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
+        const problemId = req.params.id;
+        console.log("printing the problem request for the getProblem By Id ", req.url, problemId)
+        console.log("printing the problem request for the getProblem By Id - 1 ", req.body)
+        const response = await problemService.getProblemById(problemId);
+        console.log("printing the problem creation response ", response);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            "response": response,
+            details: {}
+        })
     } catch (error) {
         next(error);
     }
 }
 
-function getAllProblems(req, res, next) {
+async function getAllProblems(req, res, next) {
     try {
-        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
+        const response = await problemService.getAllProblems();
+        console.log("printing the problem creation response ", response);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            "response": response,
+            details: {}
+        })
     } catch (error) {
         next(error);
     }
 }
 
-function postNewProblem(req, res, next) {
+async function postNewProblem(req, res, next) {
     try {
-        throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
+        const probemData = req.body;
+        const response = await problemService.createProblem(probemData);
+
+        console.log("printing the problem creation response ", response);
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            "response": response,
+            details: {}
+        })
     } catch (error) {
         next(error);
     }
 }
 
-function postUpdateProblem(req, res, next) {
+async function postUpdateProblem(req, res, next) {
     try {
         throw new NOT_IMPLEMENTED("not-implemented-right-now", {})
 

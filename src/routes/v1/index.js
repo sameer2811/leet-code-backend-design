@@ -3,7 +3,6 @@ const problemRouter = require('./problem.router');
 const v1Router = express.Router();
 
 v1Router.use("/problem", problemRouter);
-//
 
 v1Router.get("/", function (req, res) {
     console.log("Server is listening at the url ending with /v1 ");

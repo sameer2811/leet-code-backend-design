@@ -1,5 +1,9 @@
+const {
+    problemController
+} = require('./../../controller/index.js');
+
 const express = require('express');
-const {problemController} = require('./../../controller/index.js');
+
 const problemRouter = express.Router();
 
 problemRouter.get("/ping", function (req, res) {
@@ -14,6 +18,6 @@ problemRouter.get("/", problemController.getAllProblems);
 
 problemRouter.put("/:id", problemController.postUpdateProblem)
 
-problemRouter.post("/" , problemController.postNewProblem)
+problemRouter.post("/", problemController.postNewProblem)
 
 module.exports = problemRouter;
