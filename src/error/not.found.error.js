@@ -5,7 +5,7 @@ const {
 
 class NotFoundError extends BaseError {
     constructor(msgDescription, msgDetails) {
-        super('Not-Found-error', StatusCodes.NotFoundError, msgDescription, msgDetails)
+        super('Not-Found-error', StatusCodes.NOT_FOUND, msgDescription, msgDetails)
     }
 }
 

@@ -3,6 +3,4 @@ class Strings {
         this.NOT_FOUND_ERROR = "not-found-error";
     }
 }
-
-
 module.exports = Strings;
